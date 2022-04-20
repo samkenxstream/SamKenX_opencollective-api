@@ -34,7 +34,7 @@ const sendEmailToList = async (to, email) => {
   debugEmail('sendEmailToList', to, 'email data: ', email);
 
   const { mailinglist, collectiveSlug, type } = getNotificationType(to);
-  email.from = email.from || `${collectiveSlug} collective <no-reply@${collectiveSlug}.opencollective.com>`;
+  email.from = email.from || `${collectiveSlug} <no-reply@opencollective.com>`;
   email.collective = email.collective || { slug: collectiveSlug }; // used for the unsubscribe url
 
   const subscribers = await models.Notification.getSubscribersUsers(collectiveSlug, mailinglist);

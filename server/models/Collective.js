@@ -875,7 +875,7 @@ function defineModel() {
           status: 'CONFIRMED',
           organizer: {
             name: parentCollective.name,
-            email: `no-reply@${parentCollective.slug}.opencollective.com`,
+            email: `no-reply@opencollective.com`,
           },
           alarms,
         };

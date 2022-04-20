@@ -268,7 +268,7 @@ describe('server/lib/recurring-contributions', () => {
             errorMessage: undefined,
           },
           {
-            from: 'test <no-reply@testslug.opencollective.com>',
+            from: 'test <no-reply@opencollective.com>',
           },
         );
 
@@ -305,7 +305,7 @@ describe('server/lib/recurring-contributions', () => {
             errorMessage: undefined,
           },
           {
-            from: 'test <no-reply@testslug.opencollective.com>',
+            from: 'test <no-reply@opencollective.com>',
           },
         );
 

@@ -50,6 +50,7 @@ const queries = {
       },
     },
     resolve(_, args) {
+      throw new Error('xxx');
       let collective;
       if (args.slug) {
         collective = models.Collective.findBySlug(args.slug.toLowerCase(), null, args.throwIfMissing);

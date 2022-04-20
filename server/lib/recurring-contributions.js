@@ -340,7 +340,7 @@ export async function sendArchivedCollectiveEmail(order) {
   };
 
   const emailOptions = {
-    from: `${order.collective.name} <no-reply@${order.collective.slug}.opencollective.com>`,
+    from: `${order.collective.name} <no-reply@opencollective.com>`,
   };
 
   const activity = {
@@ -370,7 +370,7 @@ export async function sendFailedEmail(order, lastAttempt) {
   };
 
   const emailOptions = {
-    from: `${order.collective.name} <no-reply@${order.collective.slug}.opencollective.com>`,
+    from: `${order.collective.name} <no-reply@opencollective.com>`,
   };
 
   return notifyAdminsOfCollective(data.fromCollective.id, activity, emailOptions);
@@ -427,7 +427,7 @@ export async function sendThankYouEmail(order, transaction, isFirstPayment = fal
   }
 
   const emailOptions = {
-    from: `${order.collective.name} <no-reply@${order.collective.slug}.opencollective.com>`,
+    from: `${order.collective.name} <no-reply@opencollective.com>`,
     attachments,
   };
 
@@ -449,7 +449,7 @@ export async function sendCreditCardConfirmationEmail(order) {
   };
 
   const emailOptions = {
-    from: `${order.collective.name} <no-reply@${order.collective.slug}.opencollective.com>`,
+    from: `${order.collective.name} <no-reply@opencollective.com>`,
   };
 
   return notifyAdminsOfCollective(data.fromCollective.id, activity, emailOptions);

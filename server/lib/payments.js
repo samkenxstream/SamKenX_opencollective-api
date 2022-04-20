@@ -665,7 +665,7 @@ const sendOrderConfirmedEmail = async (order, transaction) => {
     }
 
     const emailOptions = {
-      from: `${collective.name} <no-reply@${collective.slug}.opencollective.com>`,
+      from: `${collective.name} <no-reply@opencollective.com>`,
       attachments,
     };
 
@@ -693,7 +693,7 @@ const sendCryptoOrderProcessingEmail = async order => {
     };
 
     return emailLib.send('order.crypto.processing', user.email, data, {
-      from: `${collective.name} <no-reply@${collective.slug}.opencollective.com>`,
+      from: `${collective.name} <no-reply@opencollective.com>`,
     });
   }
 };
@@ -737,7 +737,7 @@ export const sendOrderProcessingEmail = async order => {
     });
   }
   return emailLib.send('order.processing', user.email, data, {
-    from: `${collective.name} <no-reply@${collective.slug}.opencollective.com>`,
+    from: `${collective.name} <no-reply@opencollective.com>`,
   });
 };
 

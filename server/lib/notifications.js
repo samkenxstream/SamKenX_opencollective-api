@@ -186,7 +186,7 @@ async function notifyUserId(UserId, activity, options = {}) {
     activity.data.event = event.info;
     activity.data.isOffline = activity.data.event.locationName !== 'Online';
     activity.data.collective = parentCollective.info;
-    options.from = `${parentCollective.name} <no-reply@${parentCollective.slug}.opencollective.com>`;
+    options.from = `${parentCollective.name} <no-reply@opencollective.com>`;
   }
 
   return emailLib.send(activity.type, user.email, activity.data, options);
@@ -261,7 +261,7 @@ const notifyUpdateSubscribers = async activity => {
   const collective = await models.Collective.findByPk(activity.data.collective.id);
   activity.data.fromCollective = (await models.Collective.findByPk(activity.data.fromCollective.id))?.info;
   activity.data.collective = collective.info;
-  activity.data.fromEmail = `${activity.data.collective.name} <no-reply@${activity.data.collective.slug}.opencollective.com>`;
+  activity.data.fromEmail = `${activity.data.collective.name} <no-reply@opencollective.com>`;
   activity.CollectiveId = collective.id;
 
   const emailOpts = { from: activity.data.fromEmail };
@@ -354,7 +354,7 @@ async function notifyByEmail(activity) {
 
     case activityType.SUBSCRIPTION_CANCELED:
       return notifyUserId(activity.UserId, activity, {
-        bcc: `no-reply@${activity.data.collective.slug}.opencollective.com`,
+        bcc: `no-reply@opencollective.com`,
       });
 
     case activityType.COLLECTIVE_MEMBER_CREATED:
@@ -527,7 +527,7 @@ async function notifyByEmail(activity) {
         {
           template: 'collective.rejected',
         },
-        { replyTo: `no-reply@${activity.data.host.slug}.opencollective.com` },
+        { replyTo: `no-reply@opencollective.com` },
       );
       break;
 
@@ -543,7 +543,7 @@ async function notifyByEmail(activity) {
       }
 
       notifyAdminsOfCollective(activity.data.collective.id, activity, {
-        from: `no-reply@${activity.data.host.slug}.opencollective.com`,
+        from: `no-reply@opencollective.com`,
       });
       break;
 
